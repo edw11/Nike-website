@@ -16,37 +16,42 @@ const HamburgerButton = () => {
   }
 
   return (
-    <div className="hidden max-lg:block">
-      <div
-        onClick={AddCount}
-        className={`cursor-pointer ${count == 1 ? `hidden` : `block`}`}
-      >
-        <Image src={hamburger} alt="Hamburger" width={25} height={25}></Image>
-      </div>
-      <div
-        className={`flex flex-col gap-4 bg-white p-8 shadow-2xl ${
-          count == 0 ? `hidden` : `block`
-        }`}
-      >
+    <div className="">
+      <div className="hidden max-lg:block  ">
         <div
-          className="flex justify-end items-start flex-wrap cursor-pointer"
-          onClick={MinCount}
+          onClick={AddCount}
+          className={`cursor-pointer transition-all ${
+            count == 1 ? `hidden` : `block`
+          }`}
         >
-          <h1>X</h1>
+          <Image src={hamburger} alt="Hamburger" width={25} height={25}></Image>
         </div>
-
-        <ul className="flex flex-col gap-16">
-          {navLinks.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="fons-montserrat leading-normal text-lg text-slate-gray"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div
+          className={`flex flex-col gap-4 bg-white p-8 shadow-2xl absolute right-10 transition-all ${
+            count == 0 ? `hidden` : `block`
+          }`}
+        >
+          <div
+            className="flex justify-end items-start flex-wrap cursor-pointer"
+            onClick={MinCount}
+          >
+            <h1>X</h1>
+          </div>
+          <div className="relative">
+            <ul className="flex flex-col gap-16">
+              {navLinks.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="fons-montserrat leading-normal text-lg text-slate-gray"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

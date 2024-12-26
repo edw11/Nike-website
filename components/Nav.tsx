@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <header className="padding-x py-8 absolute z-10 w-full">
+    <header className="padding-x py-8 z-50 w-full fixed bg-white ">
       <nav className="flex justify-between items-center max-container max-sm:items-start">
         <Link href="/">
           <Image src={headerLogo} alt="Logo" width={130} height={29}></Image>
@@ -14,12 +14,12 @@ const Nav = () => {
         <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
           {navLinks.map((item) => (
             <li key={item.label}>
-              <a
+              <Link
                 href={item.href}
                 className="fons-montserrat leading-normal text-lg text-slate-gray"
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
